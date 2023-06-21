@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.app-footer {
+  padding: 0 32px;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -o-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 26%);
+  background-color: #fff;
+  color: grey;
+  min-height: 50px;
+  height: 50px;
+  max-height: 50px;
+}

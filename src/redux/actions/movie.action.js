@@ -33,3 +33,22 @@ export const loadMovieAll = () => {
     }
   };
 };
+
+export const addMovie = (formdata) => {
+  console.log(formdata);
+  return async (dispatch) => {
+    try {
+      const res = await httpClient.post(
+        `${process.env.REACT_APP_API}/${server.MOVIE_URL}/Add`,
+        formdata
+      );
+      if (res.data.isSuccess) {
+        dispatch(setMovieSuccessToState(res.data));
+      } else {
+        dispatch(setMovieFailedToState(res.data.message));
+      }
+    } catch (e) {
+      dispatch(setMovieFailedToState(e.message));
+    }
+  };
+};

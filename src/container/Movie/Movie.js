@@ -8,9 +8,12 @@ import Typography from "@mui/material/Typography";
 import { Box, Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import * as movieActions from "../../redux/actions/movie.action";
+import AddIcon from "@mui/icons-material/Add";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Movie() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { isFetching, result } = useSelector((state) => state.movieReducer);
   React.useEffect(() => {
@@ -19,9 +22,23 @@ export default function Movie() {
   console.log(result);
   console.log(isFetching);
   return (
-    <Box>
+    <Box sx={{ pt: 0.5 }}>
       {!isFetching && result ? (
         <Grid container spacing={3}>
+          <Grid item md={12}>
+            <Box sx={{ textAlign: "right" }}>
+              <Button
+                onClick={() => {
+                  navigate("/Movie/AddMovie");
+                }}
+                variant="contained"
+                size="large"
+                startIcon={<AddIcon />}
+              >
+                Add
+              </Button>
+            </Box>
+          </Grid>
           {result?.data?.map((item, index) => (
             <Grid key={index} item xs={12} md={4}>
               <Card sx={{ maxWidth: 345 }}>
@@ -40,9 +57,13 @@ export default function Movie() {
                     Antarctica
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
+                <CardActions sx={{ justifyContent: "flex-end" }}>
+                  <Button size="small" variant="outlined">
+                    Edit
+                  </Button>
+                  <Button size="small" variant="outlined">
+                    Detail
+                  </Button>
                 </CardActions>
               </Card>
             </Grid>

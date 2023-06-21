@@ -11,7 +11,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PeopleIcon from "@mui/icons-material/People";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import LayersIcon from "@mui/icons-material/Layers";
-import { Route, useNavigate } from "react-router-dom";
+import { Route, useLocation, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -43,7 +43,8 @@ const Drawer = styled(MuiDrawer, {
 
 export default function SideNav(props) {
   const navigate = useNavigate();
-  const [selectedRouted, setselectedRouted] = React.useState("/");
+  const location = useLocation();
+  const [selectedRouted, setselectedRouted] = React.useState(location.pathname);
   const { toggleDrawer, open } = props;
   const handleListItemClick = (event, route) => {
     event.preventDefault();
@@ -76,6 +77,7 @@ export default function SideNav(props) {
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItemButton>
+
         <ListItemButton
           sx={{ borderRadius: "16px", marginBottom: 0.25 }}
           onClick={(event) => handleListItemClick(event, "/Movie")}
@@ -86,19 +88,37 @@ export default function SideNav(props) {
           </ListItemIcon>
           <ListItemText primary="Movie" />
         </ListItemButton>
-        <ListItemButton>
+
+        <ListItemButton
+          sx={{ borderRadius: "16px", marginBottom: 0.25 }}
+          onClick={(event) => handleListItemClick(event, "/")}
+          selected={selectedRouted === "/Customers"}
+          disabled={true}
+        >
           <ListItemIcon>
             <PeopleIcon />
           </ListItemIcon>
           <ListItemText primary="Customers" />
         </ListItemButton>
-        <ListItemButton>
+
+        <ListItemButton
+          sx={{ borderRadius: "16px", marginBottom: 0.25 }}
+          onClick={(event) => handleListItemClick(event, "/")}
+          selected={selectedRouted === "/Reports"}
+          disabled={true}
+        >
           <ListItemIcon>
             <BarChartIcon />
           </ListItemIcon>
           <ListItemText primary="Reports" />
         </ListItemButton>
-        <ListItemButton>
+
+        <ListItemButton
+          sx={{ borderRadius: "16px", marginBottom: 0.25 }}
+          onClick={(event) => handleListItemClick(event, "/")}
+          selected={selectedRouted === "/Intrgations"}
+          disabled={true}
+        >
           <ListItemIcon>
             <LayersIcon />
           </ListItemIcon>
