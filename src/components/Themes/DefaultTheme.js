@@ -1,5 +1,3 @@
-import { light } from "@mui/material/styles/createPalette";
-
 const themes = {
   typography: {
     fontFamily: ["ntlregular"],
@@ -10,7 +8,7 @@ const themes = {
       light: "#636e72",
     },
     secondary: {
-      main: "#00b894",
+      main: "##b3e099",
       light: "#81ecec",
     },
   },

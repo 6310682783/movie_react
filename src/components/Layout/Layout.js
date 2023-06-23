@@ -27,17 +27,24 @@ export default function Layout() {
         <Box
           component="main"
           sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === "light"
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
+            backgroundImage: `url("https://images8.alphacoders.com/737/737474.png")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
             flexGrow: 1,
             height: "100vh",
             overflow: "auto",
           }}
         >
           <Toolbar />
-          <Container maxWidth={false} sx={{ mt: 4, mb: 4 ,minHeight: "calc(100vh - calc(5.5rem + 1px) - calc(5.5rem + 1px))",}}>
+          <Container
+            maxWidth={false}
+            sx={{
+              mt: 4,
+              mb: 4,
+              minHeight:
+                "calc(100vh - calc(5.5rem + 1px) - calc(5.5rem + 1px))",
+            }}
+          >
             <Outlet />
           </Container>
           <Footer />

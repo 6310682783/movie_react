@@ -44,24 +44,34 @@ export default function Movie() {
               <Card sx={{ maxWidth: 345 }}>
                 <CardMedia
                   sx={{ height: 140 }}
-                  image="/static/images/cards/contemplative-reptile.jpg"
-                  title="green iguana"
+                  image={item?.url}
+                  title={item?.title}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     <Typography>{item?.title}</Typography>
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
+                    {item?.description}
                   </Typography>
                 </CardContent>
                 <CardActions sx={{ justifyContent: "flex-end" }}>
-                  <Button size="small" variant="outlined">
+                  <Button
+                    onClick={() => {
+                      navigate(`/Movie/EditMovie/${item?.id}`);
+                    }}
+                    size="small"
+                    variant="outlined"
+                  >
                     Edit
                   </Button>
-                  <Button size="small" variant="outlined">
+                  <Button
+                    onClick={() => {
+                      navigate(`/Movie/Detail/${item?.id}`);
+                    }}
+                    size="small"
+                    variant="outlined"
+                  >
                     Detail
                   </Button>
                 </CardActions>

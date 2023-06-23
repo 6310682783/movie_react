@@ -5,6 +5,8 @@ import Home from "./container/Home/Home";
 import Layout from "./components/Layout/Layout";
 import Movie from "./container/Movie/Movie";
 import AddMovie from "./container/Movie/AddMovie";
+import Detail from "./container/Movie/Detail";
+import EditMovie from "./container/Movie/EditMovie";
 
 function App() {
   useEffect(() => {}, []);
@@ -17,6 +19,8 @@ function App() {
             <Route exact path="/Home" element={<Home />} />
             <Route path="/Movie" element={<Movie />} />
             <Route path="/Movie/AddMovie" element={<AddMovie />} />
+            <Route path="/Movie/Detail/:id" element={<Detail />} />
+            <Route path="/Movie/EditMovie/:id" element={<EditMovie />} />
           </Route>
         </Routes>
       </BrowserRouter>
